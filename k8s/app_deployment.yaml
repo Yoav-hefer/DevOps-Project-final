@@ -20,7 +20,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: MONGODB_URL
-          value: "mongodb://genuser:password@mongodb/namegen"
+          value: "mongodb://genuser:password@mongodb:27017/namegen"
         ports:
         - containerPort: 8080
 
