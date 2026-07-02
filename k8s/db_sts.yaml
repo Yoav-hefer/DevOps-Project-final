@@ -42,7 +42,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo # זה השם שהאפליקציה מחפשת ב-MONGODB_URL
+  name: mongodb
   labels:
     app: mongo
 spec:
