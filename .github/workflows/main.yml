@@ -48,8 +48,8 @@ jobs:
         kubectl apply -f ./k8s/storage_class.yaml
         kubectl apply -f ./k8s/db_sts.yaml
         kubectl apply -f ./k8s/app_deployment.yaml
-        kubectl set image deployment/pacman-deployment pacman=${{ steps.login-ecr.outputs.registry }}/myapps/pacman:${{ github.sha }}
+        kubectl set image deployment/namegen-deployment app=${{ steps.login-ecr.outputs.registry }}/myapps/pacman:${{ github.sha }}
         kubectl rollout status statefulset mongo
-        kubectl rollout status deployment pacman-deployment
+        kubectl rollout status deployment namegen-deployment
         kubectl get svc
          
