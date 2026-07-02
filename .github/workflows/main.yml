@@ -50,5 +50,5 @@ jobs:
         kubectl set image deployment/namegen-deployment namegen=${{ steps.login-ecr.outputs.registry }}/myapps/app:${{ github.sha }}
         kubectl rollout status statefulset/mongodb
         kubectl rollout status deployment/namegen-deployment
-           
+            
          
