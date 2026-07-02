@@ -5,7 +5,7 @@ metadata:
   labels:
     app: namegen
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: namegen
@@ -20,7 +20,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: MONGODB_URL
-          value: "mongodb://genuser:password@mongo:27017/namegen?authSource=admin"
+          value: "mongodb://genuser:password@mongo-0.mongo:27017,mongo-1.mongo:27017/namegen?authSource=admin&replicaSet=rs0"
         ports:
         - containerPort: 8080
 
