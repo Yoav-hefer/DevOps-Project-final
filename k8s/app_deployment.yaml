@@ -18,6 +18,9 @@ spec:
       - name: namegen
         image: 878564870545.dkr.ecr.us-east-1.amazonaws.com/myapps/app:ebdeb25945ccd16bf20f256f83f770d299cf57e4
         imagePullPolicy: IfNotPresent
+         env:
+        - name: MONGO_URL
+          value: "mongodb://genuser:password@mongodb/namegen"
         ports:
         - containerPort: 8080
 
