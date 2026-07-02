@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mongodb
+  name: mongo
 spec:
-  serviceName: mongodb
+  serviceName: mongo
   replicas: 2
   selector:
     matchLabels:
-      app: mongodb
+      app: mongo
   template:
     metadata:
       labels:
-        app: mongodb
+        app: mongo
     spec:
       containers:
-      - name: mongodb
+      - name: mongo
         image: mongo:3.6
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
@@ -42,13 +42,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb
+  name: mongo
   labels:
-    app: mongodb
+    app: mongo
 spec:
   clusterIP: None
   selector:
-    app: mongodb
+    app: mongo
   ports:
   - protocol: TCP
     port: 27017
