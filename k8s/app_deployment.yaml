@@ -20,7 +20,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: MONGODB_URL
-          value: "mongodb://genuser:password@mongodb:27017/namegen?authSource=admin"
+          value: "mongodb://genuser:password@mongodb:27017/?authSource=admin"
         ports:
         - containerPort: 8080
         readinessProbe:
