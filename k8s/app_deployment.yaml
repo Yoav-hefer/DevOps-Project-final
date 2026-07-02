@@ -14,11 +14,11 @@ spec:
       labels:
         app: namegen
     spec:
-      containers:
+     containers:
       - name: namegen
         image: 878564870545.dkr.ecr.us-east-1.amazonaws.com/myapps/app:ebdeb25945ccd16bf20f256f83f770d299cf57e4
         imagePullPolicy: IfNotPresent
-       env:
+        env:
         - name: MONGODB_URL
           value: "mongodb://genuser:password@mongo:27017/namegen?authSource=admin"
         ports:
