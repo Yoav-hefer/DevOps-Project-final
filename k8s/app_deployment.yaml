@@ -5,7 +5,7 @@ metadata:
   labels:
     app: namegen
 spec:
-  replicas: 3
+  replicas: 1 # ממליץ להתחיל מ-1 כדי לפשט את הדיבאגינג
   selector:
     matchLabels:
       app: namegen
@@ -20,9 +20,14 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: MONGODB_URL
-          value: "mongodb://genuser:password@mongo:27017/namegen?authSource=admin"
+          value: "mongodb://genuser:password@mongodb:27017/namegen?authSource=admin"
         ports:
         - containerPort: 8080
+        readinessProbe: # זה הקריטי למניעת קריסות בזמן עלייה
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 5
 
 ---
 
@@ -43,4 +48,3 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 8080
-       
