@@ -20,7 +20,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:  # חייב להיות ישר מתחת ל-imagePullPolicy
         - name: MONGODB_URL
-          value: "mongodb://genuser:password@mongodb/namegen"
+          value: "mongodb://genuser:password@mongo/namegen"
         ports:
         - containerPort: 8080
 
