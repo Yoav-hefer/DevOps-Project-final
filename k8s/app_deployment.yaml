@@ -5,7 +5,7 @@ metadata:
   labels:
     app: namegen
 spec:
-  replicas: 1 # ממליץ להתחיל מ-1 כדי לפשט את הדיבאגינג
+  replicas: 1
   selector:
     matchLabels:
       app: namegen
@@ -23,7 +23,7 @@ spec:
           value: "mongodb://genuser:password@mongodb:27017/namegen?authSource=admin"
         ports:
         - containerPort: 8080
-        readinessProbe: # זה הקריטי למניעת קריסות בזמן עלייה
+        readinessProbe:
           tcpSocket:
             port: 8080
           initialDelaySeconds: 15
