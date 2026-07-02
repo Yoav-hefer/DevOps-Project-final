@@ -3,18 +3,18 @@ kind: StatefulSet
 metadata:
   name: mongodb
 spec:
-  serviceName: mongo
+  serviceName: mongodb
   replicas: 2
   selector:
     matchLabels:
-      app: mongo
+      app: mongodb
   template:
     metadata:
       labels:
-        app: mongo
+        app: mongodb
     spec:
       containers:
-      - name: mongo
+      - name: mongodb
         image: mongo:3.6
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
@@ -44,11 +44,11 @@ kind: Service
 metadata:
   name: mongodb
   labels:
-    app: mongo
+    app: mongodb
 spec:
   clusterIP: None
   selector:
-    app: mongo
+    app: mongodb
   ports:
   - protocol: TCP
     port: 27017
