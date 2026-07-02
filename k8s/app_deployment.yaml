@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
       - name: namegen
-        # וודא שה-image כאן הוא ה-URI של האימג' שלך ב-ECR
         image: 878564870545.dkr.ecr.us-east-1.amazonaws.com/myapps/app:latest
         imagePullPolicy: IfNotPresent
         env:
