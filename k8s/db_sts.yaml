@@ -25,7 +25,7 @@ spec:
   - metadata:
       name: mongo-data
     spec:
-      storageClassName: gp3
+      storageClassName: auto-ebs-sc
       accessModes:
       - ReadWriteOnce
       resources:
