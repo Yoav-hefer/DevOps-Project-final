@@ -48,7 +48,7 @@ jobs:
         kubectl apply -f k8s/db_sts.yaml
         kubectl apply -f k8s/app_deployment.yaml
         kubectl set image deployment/namegen-deployment namegen=${{ steps.login-ecr.outputs.registry }}/myapps/app:${{ github.sha }}
-        kubectl rollout status statefulset/mongo
+        kubectl rollout status statefulset/mongodb
         kubectl rollout status deployment/namegen-deployment
            
          
